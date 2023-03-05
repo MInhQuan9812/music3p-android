@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity"
+    android:background="@drawable/drawable_linear_bg_splash"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="10dp">
+
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:background="@drawable/splashimage1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hey Welcome!"
+            android:textColor="@color/textPrimaryColor"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Music to the world. Expore definitive archive of music!!! "
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+        <Button
+            android:id="@+id/startedBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Started"
+            style="@style/ButtonPrimaryStyleLarge"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="60dp"/>
+
+</LinearLayout>

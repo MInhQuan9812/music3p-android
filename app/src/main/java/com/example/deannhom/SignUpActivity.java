@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -18,10 +17,8 @@ public class SignUpActivity extends AppCompatActivity {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+                startActivity(new Intent(SignUpActivity.this, WellcomeActivity.class));
             }
         });
     }
-
-
 }
