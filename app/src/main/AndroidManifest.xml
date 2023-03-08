@@ -14,13 +14,24 @@
         android:theme="@style/Theme.DeAnNhom"
         tools:targetApi="31">
         <activity
+            android:name=".SignInActivity"
+            android:exported="false"
+            android:screenOrientation="locked"/>
+
+        <activity
             android:name=".SignUpActivity"
             android:exported="false"
             android:screenOrientation="locked"/>
 
-        <activity android:name=".WellcomeActivity"
+        <activity android:name=".WelcomeActivity"
             android:exported="false"
             android:screenOrientation="locked"/>
+
+        <activity android:name=".HomeActivity"
+            android:exported="false"
+            android:screenOrientation="locked"/>
+
+
 
         <activity
             android:name=".SplashActivity"
