@@ -25,7 +25,7 @@ This project is making for fun and we don't have time to support for you if have
 
 ### Discord
 
-One of the developer of this app have his Discord server, consider to join if you like [discord.gg/wbw] 
+One of the developer of this app have his Discord server, consider to [join](https://discord.gg/wbw) if you like 
 
 ## PROCESS:
 
