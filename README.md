@@ -4,7 +4,7 @@ This is a music app developed in Java that allows users to stream and download m
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/music-app.git`
+1. Clone the repository: `git clone https://github.com/MakotoTheGod/deANhom.git`
 2. Open the project in your preferred Java IDE.
 3. Build and run the project.
 
