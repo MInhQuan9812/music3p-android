@@ -48,7 +48,7 @@
         android:padding="10dp"
         android:layout_margin="10dp"
         android:background="@drawable/drawable_r10dp"
-        android:drawableLeft="@drawable/ic_mail"
+        android:drawableLeft="@drawable/ic_user"
         android:textSize="20sp"/>
 
     <EditText

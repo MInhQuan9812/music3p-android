@@ -3,74 +3,83 @@ package com.example.deannhom;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.text.TextUtils;
-import java.util.regex.Pattern;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 public class SignUpActivity extends AppCompatActivity {
 
-    private EditText mFullNameEditText;
-    private EditText mEmailEditText;
-    private EditText mPasswordEditText;
-    private EditText mConfirmPasswordEditText;
-    private Button mSignUpButton;
-    private SharedPreferences mSharedPreferences;
+    private EditText fullNameEditText;
+    private EditText emailEditText;
+    private EditText passwordEditText;
+    private EditText confirmPasswordEditText;
+    private Button signUpButton;
+    private SQLiteDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        // Initialize SharedPreferences
-        mSharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        // Initialize SQLite database
+        SQLiteOpenHelper dbHelper = new DBHelper(this);
+        database = dbHelper.getWritableDatabase();
 
         // Initialize views
-        mFullNameEditText = findViewById(R.id.fullNameEditText);
-        mEmailEditText = findViewById(R.id.emailEditText);
-        mPasswordEditText = findViewById(R.id.passwordEditText);
-        mConfirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
-        mSignUpButton = findViewById(R.id.signUpButton);
+        fullNameEditText = findViewById(R.id.fullNameEditText);
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
+        signUpButton = findViewById(R.id.signUpButton);
 
-        // Set onClickListener for signUpButton
-        mSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Get user input
-                String fullName = mFullNameEditText.getText().toString();
-                String email = mEmailEditText.getText().toString();
-                String password = mPasswordEditText.getText().toString();
-                String confirmPassword = mConfirmPasswordEditText.getText().toString();
+        signUpButton.setOnClickListener(view -> signUp());
+    }
 
+    private void signUp() {
+        // Get user input
+        String fullName = fullNameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        String confirmPassword = confirmPasswordEditText.getText().toString();
 
-                // Check if input is valid
-                if (TextUtils.isEmpty(fullName) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
-                    Toast.makeText(SignUpActivity.this, "Please enter all required information", Toast.LENGTH_SHORT).show();
-                } else if (password.length() < 10) {
-                    Toast.makeText(SignUpActivity.this, "Password must be at least 10 characters long", Toast.LENGTH_SHORT).show();
-                } else if (!isValidEmail(email)) {
-                    Toast.makeText(SignUpActivity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
-                } else if (!password.equals(confirmPassword)) {
-                    Toast.makeText(SignUpActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-                } else {
+        // Check if input is valid
+        if (TextUtils.isEmpty(fullName) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
+            Toast.makeText(this, "Please enter all required information", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        if (password.length() < 10) {
+            Toast.makeText(this, "Password must be at least 10 characters long", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-                    // If input is valid, save sign-up information and go to home activity
-                    SharedPreferences.Editor editor = mSharedPreferences.edit();
-                    editor.putString("fullName", fullName);
-                    editor.putString("email", email);
-                    editor.putString("password", password);
-                    editor.apply();
+        if (!isValidEmail(email)) {
+            Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-                    startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
-                    finish();
-                }
-            }
-        });
+        if (!password.equals(confirmPassword)) {
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // If input is valid, save sign-up information and go to home activity
+        try {
+            String sql = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
+            database.execSQL(sql, new Object[] { fullName, email, password });
+
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean isValidEmail(String email) {
@@ -78,5 +87,26 @@ public class SignUpActivity extends AppCompatActivity {
         String regex = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         return pattern.matcher(email).matches();
+    }
+
+    private static class DBHelper extends SQLiteOpenHelper {
+
+        private static final String DB_NAME = "my_db";
+        private static final int DB_VERSION = 1;
+        private static final String CREATE_TABLE = "CREATE TABLE users (_id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT, email TEXT, password TEXT)";
+
+        public DBHelper(Context context) {
+            super(context, DB_NAME, null, DB_VERSION);
+        }
+
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            db.execSQL(CREATE_TABLE);
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            // Nothing to do here for now
+        }
     }
 }
