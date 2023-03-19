@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.deannhom" >
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        android:minSdkVersion="30"
+        android:protectionLevel="signature" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,31 +20,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeAnNhom"
         tools:targetApi="31" >
-        <activity
-            android:name=".HomeActivity"
+
+        <activity android:name=".HomeActivity"
             android:exported="false" />
-        <activity
-            android:name=".SignInActivity"
+
+        <activity android:name=".SignInActivity"
             android:exported="false"
             android:screenOrientation="locked" />
-        <activity
-            android:name=".SignUpActivity"
+
+        <activity android:name=".SignUpActivity"
             android:exported="false"
             android:screenOrientation="locked" />
-        <activity
-            android:name=".WelcomeActivity"
+
+        <activity android:name=".WelcomeActivity"
             android:exported="false"
             android:screenOrientation="locked" />
-        <activity
-            android:name=".SplashActivity"
+
+        <activity android:name=".SplashActivity"
             android:exported="true"
             android:screenOrientation="locked" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>
