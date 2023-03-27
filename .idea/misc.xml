@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable-xhdpi/drawable_linear_bg_api31.xml" value="0.1015" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable-xxxhdpi/drawabke_linear_bg_playermedia_api31.xml" value="0.2095" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable-xxxhdpi/ic_baseline_pause_circle_outline_24.xml" value="0.2255" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawabke_linear_bg_playermedia.xml" value="0.2095" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawable_linear_bg.xml" value="0.145" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawable_linear_bg_api26.xml" value="0.135" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawable_linear_bg_splash.xml" value="0.316" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawable_r10dp.xml" value="0.2645" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawable_r10dp_outline.xml" value="0.316" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawable_r25dp.xml" value="0.1" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawable_r25dp_outline.xml" value="0.225" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/drawble_r50dp.xml" value="0.337" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/ic_back_arrow.xml" value="0.225" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/ic_hide_password.xml" value="0.3215" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/ic_icons8_spotify.xml" value="0.316" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/ic_mail.xml" value="0.316" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/ic_music_icon.xml" value="0.316" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/drawable/splash_screen.xml" value="0.316" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/activity_music_player.xml" value="0.33" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/activity_splash.xml" value="0.18" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/activity_welcome.xml" value="0.22" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/activity_wellcome.xml" value="0.33177083333333335" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/layout/recycler_item.xml" value="0.33177083333333335" />
+        <entry key="..\:/Users/MinhQuan/AndroidStudioProjects/DeAnNhom2/app/src/main/res/menu/menu_main.xml" value="0.33177083333333335" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

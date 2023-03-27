@@ -1,17 +1,15 @@
 package com.example.deannhom;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.regex.Pattern;
 
@@ -21,13 +19,7 @@ public class SignInActivity extends AppCompatActivity {
     private EditText mPasswordEditText;
     private Button mSignInButton;
 
-    private SQLiteDatabase mDatabase;
-    private static final String DATABASE_NAME = "my_db";
-    private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "users";
-    private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_EMAIL = "email";
-    private static final String COLUMN_PASSWORD = "password";
+    private SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +31,8 @@ public class SignInActivity extends AppCompatActivity {
         mPasswordEditText = findViewById(R.id.passwordEditText);
         mSignInButton = findViewById(R.id.signInButton);
 
-        // Create the database
-        DBHelper dbHelper = new DBHelper(this);
-        mDatabase = dbHelper.getWritableDatabase();
+        // Get reference to SharedPreferences
+        mSharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         // Set click listener for sign in button
         mSignInButton.setOnClickListener(new View.OnClickListener() {
@@ -51,36 +42,28 @@ public class SignInActivity extends AppCompatActivity {
                 String email = mEmailEditText.getText().toString().trim();
                 String password = mPasswordEditText.getText().toString().trim();
 
-                // Check if input is empty
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(SignInActivity.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
+                // Check if input is valid
+                if (!isValidEmail(email)) {
+                    Toast.makeText(SignInActivity.this, "Invalid email address", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!isValidPassword(password)) {
+                    Toast.makeText(SignInActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-
-
                 // Check if email and password match saved information
-                Cursor cursor = mDatabase.query(TABLE_NAME, new String[]{COLUMN_ID, COLUMN_EMAIL, COLUMN_PASSWORD},
-                        COLUMN_EMAIL + "=? and " + COLUMN_PASSWORD + "=?", new String[]{email, password},
-                        null, null, null);
+                String savedEmail = mSharedPreferences.getString("email", "");
+                String savedPassword = mSharedPreferences.getString("password", "");
 
-                if (cursor != null && cursor.moveToFirst()) {
+                if (email.equals(savedEmail) && password.equals(savedPassword)) {
                     // If the email and password are valid, do the login here
                     Toast.makeText(SignInActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
                     startActivity(intent);
-
-                } else if (email.equals("example@gmail.com") || password.equals("password123")) {
-                    Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
-                    startActivity(intent);
-
-
                 } else {
                     Toast.makeText(SignInActivity.this, "Incorrect email or password", Toast.LENGTH_SHORT).show();
-                }
-
-                if (cursor != null) {
-                    cursor.close();
                 }
             }
         });
@@ -104,32 +87,6 @@ public class SignInActivity extends AppCompatActivity {
 
             // Check if password matches pattern
             return pattern.matcher(password).matches();
-        }
-    }
-
-    private static class DBHelper extends SQLiteOpenHelper {
-
-
-        private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_EMAIL + " TEXT, " +
-                COLUMN_PASSWORD + " TEXT)";
-
-        private static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
-
-        public DBHelper(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL(CREATE_TABLE);
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL(DROP_TABLE);
-            onCreate(db);
         }
     }
 }

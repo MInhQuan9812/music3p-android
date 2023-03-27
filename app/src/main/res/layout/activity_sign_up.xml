@@ -23,8 +23,6 @@
             android:src="@drawable/ic_back_arrow" />
     </LinearLayout>
 
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,6 +46,7 @@
         android:padding="10dp"
         android:layout_margin="10dp"
         android:background="@drawable/drawable_r10dp"
+        android:hint="Full name"
         android:drawableLeft="@drawable/ic_user"
         android:textSize="20sp"/>
 
@@ -60,14 +59,17 @@
         android:textColorHint="@color/textPrimaryColor"
         android:padding="10dp"
         android:layout_margin="10dp"
+        android:hint="Email"
         android:background="@drawable/drawable_r10dp"
         android:drawableLeft="@drawable/ic_mail"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:hint="Password"
         android:backgroundTint="@color/buttonTextSubColor"
         android:textColor="@color/textPrimaryColor"
         android:textColorHint="@color/textPrimaryColor"
@@ -89,6 +91,7 @@
         android:textColor="@color/textPrimaryColor"
         android:textColorHint="@color/textPrimaryColor"
         android:padding="10dp"
+        android:hint="Confirm Password"
         android:textSize="20sp"
         android:layout_margin="10dp"
         android:background="@drawable/drawable_r10dp"

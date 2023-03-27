@@ -6,16 +6,17 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
-
     private EditText fullNameEditText;
     private EditText emailEditText;
     private EditText passwordEditText;
@@ -38,7 +39,6 @@ public class SignUpActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
         signUpButton = findViewById(R.id.signUpButton);
-
         signUpButton.setOnClickListener(view -> signUp());
     }
 
@@ -74,7 +74,6 @@ public class SignUpActivity extends AppCompatActivity {
         try {
             String sql = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
             database.execSQL(sql, new Object[] { fullName, email, password });
-
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         } catch (Exception e) {
@@ -90,7 +89,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private static class DBHelper extends SQLiteOpenHelper {
-
         private static final String DB_NAME = "my_db";
         private static final int DB_VERSION = 1;
         private static final String CREATE_TABLE = "CREATE TABLE users (_id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT, email TEXT, password TEXT)";
