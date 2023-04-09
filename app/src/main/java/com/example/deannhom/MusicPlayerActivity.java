@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.deannhom.model.AudioModel;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -109,13 +111,10 @@ public class MusicPlayerActivity extends AppCompatActivity {
         previousBtn.setOnClickListener(v-> playPreviousSong());
 
         playMusic();
-
-
     }
 
 
     private void playMusic(){
-
         mediaPlayer.reset();
         try {
             mediaPlayer.setDataSource(currentSong.getPath());
@@ -126,7 +125,6 @@ public class MusicPlayerActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 

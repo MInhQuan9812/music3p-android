@@ -30,4 +30,5 @@
     <!--    Button-->
     <color name="buttonTextPrimaryColor">@color/pink</color>
     <color name="buttonTextSubColor">#E5E5E5</color>
+
 </resources>

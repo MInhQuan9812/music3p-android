@@ -2,7 +2,6 @@ package com.example.deannhom;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -74,7 +73,7 @@ public class SignUpActivity extends AppCompatActivity {
         try {
             String sql = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
             database.execSQL(sql, new Object[] { fullName, email, password });
-            startActivity(new Intent(this, HomeActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
             finish();
         } catch (Exception e) {
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -87,7 +86,6 @@ public class SignUpActivity extends AppCompatActivity {
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         return pattern.matcher(email).matches();
     }
-
     private static class DBHelper extends SQLiteOpenHelper {
         private static final String DB_NAME = "my_db";
         private static final int DB_VERSION = 1;
@@ -107,4 +105,5 @@ public class SignUpActivity extends AppCompatActivity {
             // Nothing to do here for now
         }
     }
+
 }

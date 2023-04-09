@@ -1,4 +1,4 @@
-package com.example.deannhom;
+package com.example.deannhom.model;
 
 import java.io.Serializable;
 
