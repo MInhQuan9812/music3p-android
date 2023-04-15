@@ -44,11 +44,28 @@ public class SignInActivity extends AppCompatActivity {
         DBHelper dbHelper = new DBHelper(this);
         mDatabase = dbHelper.getWritableDatabase();
 
+
+
+
+
+
+        mEmailEditText.setText("minwonasd123@gmail.com");
+        mPasswordEditText.setText("1234567890");
+
+
+
+
+
+
+
         // Set click listener for sign in button
         mSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get user input
+
+
+
                 String email = mEmailEditText.getText().toString().trim();
                 String password = mPasswordEditText.getText().toString().trim();
 
@@ -79,6 +96,7 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
+        mSignInButton.performClick();
     }
 
     private boolean isValidEmail(String email) {

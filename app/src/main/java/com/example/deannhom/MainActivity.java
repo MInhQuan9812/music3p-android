@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.provider.MediaStore;
 
 import java.io.File;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import android.os.Bundle;
@@ -32,6 +34,8 @@ import android.view.Menu;
 import com.example.deannhom.adapter.MusicListAdapter;
 import com.example.deannhom.model.AudioModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -56,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 //        getSupportActionBar().setTitle("Main");
 //        mnBottom.setOnNavigationItemSelectedListener(getListener());
         // Check if user is already logged in
-
         isUserLoggedIn = checkUserLoginStatus();
         recyclerView = findViewById(R.id.recycler_view);
         noMusicTextView = findViewById(R.id.no_songs_text);
@@ -72,14 +75,22 @@ public class MainActivity extends AppCompatActivity {
                 MediaStore.Audio.Media.DURATION
         };
 
-        String selection = MediaStore.Audio.Media.IS_MUSIC + " != 0";
 
-        Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, selection, null, null);
-        while (cursor.moveToNext()) {
-            AudioModel songData = new AudioModel(cursor.getString(1), cursor.getString(0), cursor.getString(2));
-            if (new File(songData.getPath()).exists())
-                songsList.add(songData);
-        }
+        Gson gson=new Gson();
+        String data=Utils.getAssetsJsonData(this);
+        Type type=new TypeToken<ArrayList<AudioModel>>(){}.getType();
+        songsList=gson.fromJson(data,type);
+
+
+
+//        String selection = MediaStore.Audio.Media.IS_MUSIC + " != 0";
+//        Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, selection, null, null);
+//
+//        while (cursor.moveToNext()) {
+//            AudioModel songData = new AudioModel(cursor.getString(1), cursor.getString(0), cursor.getString(2),cursor.getString(3),cursor.getString(4));
+//            if (new File(songData.getPath()).exists())
+//                songsList.add(songData);
+//        }
 
         if (songsList.size() == 0) {
             noMusicTextView.setVisibility(View.VISIBLE);
@@ -161,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         return prefs.getBoolean("isLoggedIn", false);
     }
-
     //
     boolean checkPermission() {
         int result = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -187,10 +197,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    void loadFragment(Fragment fmNew) {
-//        FragmentTransaction fmTran = getSupportFragmentManager().beginTransaction();
-//        fmTran.replace(R.id.main_fragment, fmNew);
-//        fmTran.addToBackStack(null);
-//        fmTran.commit();
-//    }
+    //
+
+
 }

@@ -99,6 +99,7 @@
                 android:src="@drawable/ic_baseline_skip_next_24" />
 
             <ImageView
+                android:scaleType="centerCrop"
                 android:id="@+id/pause_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
