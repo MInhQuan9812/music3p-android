@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.deannhom.adapter.Song;
+
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {

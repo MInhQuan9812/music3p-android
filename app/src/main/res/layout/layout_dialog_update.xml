@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FF8C00"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_700"
+            android:text="Dialog Update title"
+            android:padding="12dp"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_ud_album"
+            android:hint="album"
+            android:padding="12dp"
+            />
+        <EditText
+            android:id="@+id/edt_ud_albumart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="album_art"
+            android:padding="12dp"/>
+        <EditText
+            android:id="@+id/edt_ud_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="artist"
+            android:padding="12dp"/>
+        <EditText
+            android:id="@+id/edt_ud_songDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="songDuration"
+            android:padding="12dp"/>
+        <EditText
+            android:id="@+id/edt_ud_songLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="songLink"
+            android:padding="12dp"/>
+        <EditText
+            android:id="@+id/edt_ud_songTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="songTitle"
+            android:padding="12dp"/>
+        <EditText
+            android:id="@+id/edt_ud_songscategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="songscategory"
+            android:padding="12dp"/>
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="0dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Cancel"/>
+    <Button
+        android:id="@+id/btn_Update"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Update"/>
+</LinearLayout>
+
+</LinearLayout>

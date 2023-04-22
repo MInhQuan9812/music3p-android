@@ -49,8 +49,8 @@ public class SignInActivity extends AppCompatActivity {
 
 
 
-        mEmailEditText.setText("minwonasd123@gmail.com");
-        mPasswordEditText.setText("1234567890");
+        mEmailEditText.setText("example@gmail.com");
+        mPasswordEditText.setText("password123");
 
 
 
@@ -85,7 +85,7 @@ public class SignInActivity extends AppCompatActivity {
                     Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else if (email.equals("example@gmail.com") || password.equals("password123")) {
-                    Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SignInActivity.this, ManagerActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(SignInActivity.this, "Incorrect email or password", Toast.LENGTH_SHORT).show();

@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "280100295118",
+    "firebase_url": "https://musicserver-978e7-default-rtdb.firebaseio.com",
+    "project_id": "musicserver-978e7",
+    "storage_bucket": "musicserver-978e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280100295118:android:eff22f098ac8aee18e5b9f",
+        "android_client_info": {
+          "package_name": "com.example.crudmusicserver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280100295118-lvnnvvjaqvfgfi7l4t381le0c90od2cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb25Cn0W9szJVk6yiITLafEucPIgzo4wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280100295118-lvnnvvjaqvfgfi7l4t381le0c90od2cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280100295118:android:a159f45c297a3dd98e5b9f",
+        "android_client_info": {
+          "package_name": "com.example.deannhom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280100295118-lvnnvvjaqvfgfi7l4t381le0c90od2cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb25Cn0W9szJVk6yiITLafEucPIgzo4wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280100295118-lvnnvvjaqvfgfi7l4t381le0c90od2cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280100295118:android:46d1de28a5974b9b8e5b9f",
+        "android_client_info": {
+          "package_name": "com.example.musicclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280100295118-lvnnvvjaqvfgfi7l4t381le0c90od2cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb25Cn0W9szJVk6yiITLafEucPIgzo4wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280100295118-lvnnvvjaqvfgfi7l4t381le0c90od2cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280100295118:android:13f6ebffa4b4ca868e5b9f",
+        "android_client_info": {
+          "package_name": "com.example.musicserver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280100295118-lvnnvvjaqvfgfi7l4t381le0c90od2cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb25Cn0W9szJVk6yiITLafEucPIgzo4wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280100295118-lvnnvvjaqvfgfi7l4t381le0c90od2cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

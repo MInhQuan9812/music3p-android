@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.deannhom" >
+    package="com.example.deannhom">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         android:minSdkVersion="30"
         android:protectionLevel="signature" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -19,37 +21,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DeAnNhom"
-        tools:targetApi="31" >
-
-        <activity android:name=".MusicPlayerActivity">
-        </activity>
-        <activity android:name=".MainActivity"
+        tools:targetApi="31">
+        <activity
+            android:name=".SongsActivity"
             android:exported="false" />
-
-        <activity android:name=".SignInActivity"
+        <activity
+            android:name=".MusicActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadSongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManagerActivity"
+            android:exported="false" />
+        <activity android:name=".MusicPlayerActivity" />
+        <activity
+            android:name=".UploadAlbumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
             android:exported="false"
             android:screenOrientation="locked" />
-
-        <activity android:name=".SignUpActivity"
+        <activity
+            android:name=".SignUpActivity"
             android:exported="false"
             android:screenOrientation="locked" />
-
-        <activity android:name=".WelcomeActivity"
+        <activity
+            android:name=".WelcomeActivity"
             android:exported="false"
             android:screenOrientation="locked" />
-
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:exported="true"
-            android:screenOrientation="locked" >
-
+            android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
     </application>
 
 </manifest>
