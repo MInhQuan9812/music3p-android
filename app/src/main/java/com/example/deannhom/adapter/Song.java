@@ -11,6 +11,10 @@ public class Song {
     public String songTitle;
     public String songscategory;
 
+
+
+    public String album;
+
     public Song(String album_art, String artist, String songDuration, String songLink, String songTitle, String songscategory) {
         this.album_art = album_art;
         this.artist = artist;
@@ -18,8 +22,16 @@ public class Song {
         this.songLink = songLink;
         this.songTitle = songTitle;
         this.songscategory = songscategory;
+        this.album = album;
     }
     public Song(){}
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
 
     public String getAlbum_art() {
         return album_art;

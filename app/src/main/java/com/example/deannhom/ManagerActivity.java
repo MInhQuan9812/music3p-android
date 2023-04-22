@@ -34,7 +34,7 @@ import java.util.List;
 
 public class ManagerActivity extends AppCompatActivity {
     private RecyclerView rcvSongs;
-    private EditText edtAlbum_art, edt_artist, edt_songDuration, edtSongLink, edt_songtitle, edt_songcategory;
+    private EditText edtAlbum_art, edt_artist, edt_songDuration, edtSongLink, edt_songtitle, edt_songcategory, edt_album;
     private Button btnAddSong;
     private SongAdapter mSongAdapter;
     private List<Song> mListSong;
@@ -163,6 +163,8 @@ public class ManagerActivity extends AppCompatActivity {
         EditText edtUdSongLink = dialog.findViewById(R.id.edt_ud_songLink);
         EditText edtUdSongTitle = dialog.findViewById(R.id.edt_ud_songTitle);
         EditText edtUdSongCategory = dialog.findViewById(R.id.edt_ud_songscategory);
+        EditText edtUdAlbum = dialog.findViewById(R.id.edt_ud_album);
+
         Button btUpdate = dialog.findViewById(R.id.btn_Update);
         Button btCancel = dialog.findViewById(R.id.btnCancel);
 
@@ -172,6 +174,7 @@ public class ManagerActivity extends AppCompatActivity {
         edtUdSongCategory.setText(song.getSongscategory());
         edtUdSongLink.setText(song.getSongLink());
         edtUdSongTitle.setText(song.getSongTitle());
+        edtUdAlbum.setText(song.getAlbum());
 
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,6 +199,8 @@ public class ManagerActivity extends AppCompatActivity {
                 song.setSongscategory(newSongcategory);
                 String newSongLink = edtUdSongLink.getText().toString().trim();
                 song.setSongLink(newSongLink);
+                String newAlbum = edtUdAlbum.getText().toString().trim();
+                song.setAlbum(newAlbum);
                 // child(name song)
                 myRef.child(song.getSongDuration()).updateChildren(song.toMap(), new DatabaseReference.CompletionListener() {
                     @Override
