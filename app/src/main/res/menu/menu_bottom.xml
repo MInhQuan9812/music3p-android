@@ -9,9 +9,9 @@
     <item
         android:id="@+id/mnPlaylist"
         android:icon="@drawable/ic_baseline_playlist_play_24"
-        android:title="List" />
+        android:title="PlayList" />
     <item
-        android:id="@+id/mnSetting"
+        android:id="@+id/mnAccount"
         android:icon="@drawable/ic_baseline_account_circle_24"
         android:title="Account" />
 </menu>

@@ -16,21 +16,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class AccountFragment extends Fragment {
-
     private TextView usernameTextView;
     private TextView emailTextView;
     private TextView playlistAmountTextView;
     private TextView creationTimeTextView;
     private Button signOutButton;
-
-
-
     private SQLiteDatabase mDatabase;
-
 
     private static final String TABLE_NAME = "users";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_EMAIL = "email";
+    private static final String COLUMN_ID = "_id";
     private static final String COLUMN_PLAYLIST_AMOUNT = "playlist_amount";
     private static final String COLUMN_CREATION_TIME = "creation_time";
     private static final String COLUMN_PASSWORD = "password";
@@ -56,33 +52,40 @@ public class AccountFragment extends Fragment {
         mDatabase = dbHelper.getReadableDatabase();
 
         // Get the user's data from the database
-        Cursor cursor = mDatabase.query(TABLE_NAME, new String[]{COLUMN_USERNAME, COLUMN_EMAIL, COLUMN_PLAYLIST_AMOUNT, COLUMN_CREATION_TIME},
-                null, null, null, null, null);
+        Cursor cursor = mDatabase.query(TABLE_NAME, new String[]{COLUMN_ID, COLUMN_USERNAME, COLUMN_EMAIL},
+                COLUMN_ID + "= " + 1, null, null, null, null);
 
-        int emailIndex = cursor.getColumnIndex(COLUMN_EMAIL);
-        int usernameIndex = cursor.getColumnIndex(COLUMN_USERNAME);
-        int playlistAmountIndex = cursor.getColumnIndex(COLUMN_PLAYLIST_AMOUNT);
-        int creationTimeIndex = cursor.getColumnIndex(COLUMN_CREATION_TIME);
 
-        if (emailIndex >= 0) {
-            String email = cursor.getString(emailIndex);
-            emailTextView.setText(email);
+        while (cursor.moveToNext()) {
+            int emailIndex = cursor.getColumnIndex(COLUMN_EMAIL);
+            int usernameIndex = cursor.getColumnIndex(COLUMN_USERNAME);
+            int playlistAmountIndex = cursor.getColumnIndex(COLUMN_PLAYLIST_AMOUNT);
+            int creationTimeIndex = cursor.getColumnIndex(COLUMN_CREATION_TIME);
+
+            if (emailIndex >= 0) {
+                String email = cursor.getString(emailIndex);
+                emailTextView.setText(email);
+            }
+
+            if (usernameIndex >= 0) {
+                String username = cursor.getString(usernameIndex);
+                usernameTextView.setText(username);
+            }
+
+            if (playlistAmountIndex >= 0) {
+                int playlistAmount = cursor.getInt(playlistAmountIndex);
+                playlistAmountTextView.setText(String.valueOf(playlistAmount));
+            }
+
+            if (creationTimeIndex >= 0) {
+                String creationTime = cursor.getString(creationTimeIndex);
+                creationTimeTextView.setText(creationTime);
+            }
+
         }
 
-        if (usernameIndex >= 0) {
-            String username = cursor.getString(usernameIndex);
-            usernameTextView.setText(username);
-        }
 
-        if (playlistAmountIndex >= 0) {
-            int playlistAmount = cursor.getInt(playlistAmountIndex);
-            playlistAmountTextView.setText(String.valueOf(playlistAmount));
-        }
 
-        if (creationTimeIndex >= 0) {
-            String creationTime = cursor.getString(creationTimeIndex);
-            creationTimeTextView.setText(creationTime);
-        }
 
 
         if (cursor != null) {
@@ -94,7 +97,6 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Signed out", Toast.LENGTH_SHORT).show();
-                // TODO: Implement sign out logic
             }
         });
 
@@ -107,8 +109,8 @@ public class AccountFragment extends Fragment {
         private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
                 COLUMN_USERNAME + " TEXT, " +
                 COLUMN_EMAIL + " TEXT PRIMARY KEY, " +
-                COLUMN_PLAYLIST_AMOUNT + " INTEGER, " +
-                COLUMN_CREATION_TIME + " TEXT, " +
+//                COLUMN_PLAYLIST_AMOUNT + " INTEGER, " +
+//                COLUMN_CREATION_TIME + " TEXT, " +
                 COLUMN_PASSWORD + " TEXT)";
 
         private static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;

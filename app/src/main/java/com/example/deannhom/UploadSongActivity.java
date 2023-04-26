@@ -51,12 +51,13 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
     TextView title, artist,album, durations,dataa;
     ImageView album_art ;
     Button btnopenAddAlbum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_song);
-        btnopenAddAlbum = findViewById(R.id.openImageUploadActivity);
 
+        btnopenAddAlbum = findViewById(R.id.openImageUploadActivity);
         btnopenAddAlbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +65,7 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
                 startActivity(i);
             }
         });
+
         textViewImage = findViewById(R.id.textViewFileSelected);
         progressBar = findViewById(R.id.progressbar);
         title = findViewById(R.id.title);
@@ -80,8 +82,6 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
         Spinner spinner = findViewById(R.id.spinner);
 
         spinner.setOnItemSelectedListener(this);
-
-
         List<String> categories = new ArrayList<>();
 
         categories.add("Love Songs");
@@ -107,7 +107,6 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
 
     }
     public  void openAudioFiles (View v ){
-
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);
         i.setType("audio/*");
         startActivityForResult(i,101);
@@ -117,7 +116,7 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 101 && resultCode  == RESULT_OK && data.getData() != null){
+        if(requestCode == 101 && resultCode  == RESULT_OK ){
 
             audioUri = data.getData();
             String fileNames = getFileName(audioUri);
@@ -132,7 +131,6 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
             dataa.setText(metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE));
             durations.setText(metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
             title.setText(metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-
             artist1 = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
             title1 = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
             durations1 = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
@@ -181,7 +179,6 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
     }
 
     private void uploadFiles() {
-
         if(audioUri != null){
             Toast.makeText(this, "uploads please wait!", Toast.LENGTH_SHORT).show();
             progressBar.setVisibility(View.VISIBLE);
@@ -199,7 +196,6 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
                             referenceSongs.child(uploadId).setValue(uploadSong);
                         }
                     });
-
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -217,6 +213,5 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(audioUri));
-
     }
 }

@@ -34,6 +34,7 @@
         <activity
             android:name=".ManagerActivity"
             android:exported="false" />
+
         <activity android:name=".MusicPlayerActivity" />
         <activity
             android:name=".UploadAlbumActivity"
@@ -56,6 +57,7 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

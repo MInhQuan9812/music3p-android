@@ -40,7 +40,6 @@ public class ManagerActivity extends AppCompatActivity {
     private List<Song> mListSong;
 
     private Button btnSearch;
-
     private EditText edtSearch;
     private String key;
     private int i = 0;

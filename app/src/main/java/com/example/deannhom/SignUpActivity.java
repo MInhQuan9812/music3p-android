@@ -51,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
         String confirmPassword = confirmPasswordEditText.getText().toString();
 
         // Check if input is valid
+
         if (TextUtils.isEmpty(fullName) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
             Toast.makeText(this, "Please enter all required information", Toast.LENGTH_SHORT).show();
             return;
@@ -91,7 +92,7 @@ public class SignUpActivity extends AppCompatActivity {
     private static class DBHelper extends SQLiteOpenHelper {
         private static final String DB_NAME = "my_db";
         private static final int DB_VERSION = 1;
-        private static final String CREATE_TABLE = "CREATE TABLE users (_id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT, email TEXT, password TEXT)";
+        private static final String CREATE_TABLE = "CREATE TABLE users (_id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT, email TEXT, password TEXT, username TEXT)";
 
         public DBHelper(Context context) {
             super(context, DB_NAME, null, DB_VERSION);
