@@ -1,41 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/usernameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="Username: " />
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="Username"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/emailTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="Email: " />
+        android:text="example@gmail.com"
+        android:textColor="@android:color/darker_gray" />
 
-    <TextView
-        android:id="@+id/playlistAmountTextView"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="Number of playlists: " />
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
-    <TextView
-        android:id="@+id/creationTimeTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="Account created on: " />
+        <TextView
+            android:id="@+id/playlistAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="Number of playlists: "
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/playlistAmountValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="5"
+            android:textColor="@android:color/black" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/creationTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="Account created on: "
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/creationTimeValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="Jan 01, 2023"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/signOutButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Out" />
+        android:layout_marginTop="16dp"
+        android:text="Sign Out"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button_bg" />
 
 </LinearLayout>

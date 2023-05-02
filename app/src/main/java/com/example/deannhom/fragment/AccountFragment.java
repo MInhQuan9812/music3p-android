@@ -1,18 +1,23 @@
 package com.example.deannhom.fragment;
 
-import android.database.Cursor;
-import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.deannhom.MainActivity;
 import com.example.deannhom.R;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import com.example.deannhom.SignInActivity;
 
 
 public class AccountFragment extends Fragment {
@@ -93,12 +98,32 @@ public class AccountFragment extends Fragment {
         }
 
         // Set up sign out button click listener
+        // Set up sign out button click listener
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Clear the current user session
+                // This can be done by removing any saved user data or preferences
+                // For example, you can use the SharedPreferences API to clear saved user data
+                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.clear();
+                editor.apply();
+
+                // Navigate back to the login screen
+                // This can be done by starting a new activity or fragment
+                // For example, you can use the Navigation Component to navigate to the login screen
+                // Navigation.findNavController(v).navigate(R.id.action_accountFragment_to_loginFragment);
+
+                // Show a toast message to confirm sign out
                 Toast.makeText(getActivity(), "Signed out", Toast.LENGTH_SHORT).show();
+
+                // Navigate to the sign in screen
+                Intent intent = new Intent(getActivity(), SignInActivity.class);
+                startActivity(intent);
             }
         });
+
 
         return rootView;
     }
