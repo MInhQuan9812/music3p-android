@@ -8,15 +8,15 @@
     android:focusable="true"
     android:background="?android:attr/selectableItemBackground"
     >
+
     <ImageView
+        android:id="@+id/iv_artwork"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_centerVertical="true"
-        android:src="@drawable/music_placeholder"
-        android:id="@+id/iv_artwork"
-        ></ImageView>
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/music_placeholder"></ImageView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
         android:paddingEnd="50dp"
         android:layout_toRightOf="@+id/iv_artwork"
         android:layout_toEndOf="@+id/iv_artwork"
-
+        android:textColor="@color/textPrimaryColor"
         ></TextView>
 
     <TextView
@@ -40,6 +40,7 @@
         android:text="Artiste"
         android:layout_below="@+id/tv_title"
         android:id="@+id/tv_artist"
+        android:textColor="@color/textSubColor"
         >
 
     </TextView>

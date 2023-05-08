@@ -43,19 +43,23 @@
             android:layout_height="wrap_content"
             android:text="songscategory"/>
     </LinearLayout>
+
     <Button
         android:id="@+id/btn_Update"
+        style="@style/ButtonPrimaryStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginEnd="5dp"
         android:layout_toStartOf="@+id/btn_Delete"
-        android:text="Update"/>
+        android:text="Update" />
+
     <Button
         android:id="@+id/btn_Delete"
+        style="@style/ButtonOutlineStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
-        android:text="Delete"/>
+        android:layout_centerVertical="true"
+        android:text="Delete" />
 </RelativeLayout>

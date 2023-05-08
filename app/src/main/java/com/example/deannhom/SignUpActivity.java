@@ -14,28 +14,29 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.deannhom.adapter.Song;
+import com.example.deannhom.helper.DbHelper;
 
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText fullNameEditText;
+    private EditText usernameEditText;
     private EditText emailEditText;
     private EditText passwordEditText;
     private EditText confirmPasswordEditText;
     private Button signUpButton;
     private SQLiteDatabase database;
+    DbHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        // Initialize SQLite database
-        SQLiteOpenHelper dbHelper = new DBHelper(this);
-        database = dbHelper.getWritableDatabase();
+        DB = new DbHelper(this);
+        database = DB.getWritableDatabase();
 
         // Initialize views
-        fullNameEditText = findViewById(R.id.fullNameEditText);
+        usernameEditText = findViewById(R.id.usernameTextView);
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
@@ -45,14 +46,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void signUp() {
         // Get user input
-        String fullName = fullNameEditText.getText().toString();
+        String username = usernameEditText.getText().toString();
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
 
         // Check if input is valid
 
-        if (TextUtils.isEmpty(fullName) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
+        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
             Toast.makeText(this, "Please enter all required information", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -74,8 +75,8 @@ public class SignUpActivity extends AppCompatActivity {
 
         // If input is valid, save sign-up information and go to home activity
         try {
-            String sql = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
-            database.execSQL(sql, new Object[] { fullName, email, password });
+            String sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+            database.execSQL(sql, new Object[]{username, email, password});
             startActivity(new Intent(this, MainActivity.class));
             finish();
         } catch (Exception e) {
@@ -89,24 +90,4 @@ public class SignUpActivity extends AppCompatActivity {
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         return pattern.matcher(email).matches();
     }
-    private static class DBHelper extends SQLiteOpenHelper {
-        private static final String DB_NAME = "my_db";
-        private static final int DB_VERSION = 1;
-        private static final String CREATE_TABLE = "CREATE TABLE users (_id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT, email TEXT, password TEXT, username TEXT)";
-
-        public DBHelper(Context context) {
-            super(context, DB_NAME, null, DB_VERSION);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL(CREATE_TABLE);
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            // Nothing to do here for now
-        }
-    }
-
 }

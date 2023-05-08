@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.deannhom.helper.DbHelper;
+
 import java.util.regex.Pattern;
 
 public class SignInActivity extends AppCompatActivity {
@@ -21,10 +23,9 @@ public class SignInActivity extends AppCompatActivity {
     private EditText mEmailEditText;
     private EditText mPasswordEditText;
     private Button mSignInButton;
-
     private SQLiteDatabase mDatabase;
-    private static final String DATABASE_NAME = "my_db";
-    private static final int DATABASE_VERSION = 1;
+    DbHelper DB;
+
     private static final String TABLE_NAME = "users";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_EMAIL = "email";
@@ -41,12 +42,9 @@ public class SignInActivity extends AppCompatActivity {
         mSignInButton = findViewById(R.id.signInButton);
 
         // Create the database
-        DBHelper dbHelper = new DBHelper(this);
-        mDatabase = dbHelper.getWritableDatabase();
 
-
-//        mEmailEditText.setText("example@gmail.com");
-//        mPasswordEditText.setText("password123");
+        DB=new DbHelper(this);
+        mDatabase = DB.getWritableDatabase();
 
         // Set click listener for sign in button
         mSignInButton.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +64,7 @@ public class SignInActivity extends AppCompatActivity {
                 Cursor cursor = mDatabase.query(TABLE_NAME, new String[]{COLUMN_ID, COLUMN_EMAIL, COLUMN_PASSWORD},
                         COLUMN_EMAIL + "=? and " + COLUMN_PASSWORD + "=?", new String[]{email, password},
                         null, null, null);
+
 
                 if (cursor != null && cursor.moveToFirst()) {
                     // If the email and password are valid, do the login here
@@ -107,27 +106,4 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
 
-    private static class DBHelper extends SQLiteOpenHelper {
-        private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_EMAIL + " TEXT, " +
-                COLUMN_PASSWORD + " TEXT)";
-
-        private static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
-
-        public DBHelper(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL(CREATE_TABLE);
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL(DROP_TABLE);
-            onCreate(db);
-        }
-    }
 }

@@ -67,7 +67,7 @@
 
 
         <Button
-            android:id="@+id/editProfile"
+            android:id="@+id/editProfileButton"
             style="@style/ButtonOutlineStyleLarge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

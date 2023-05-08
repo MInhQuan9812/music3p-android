@@ -49,13 +49,10 @@ public class SongsActivity extends AppCompatActivity {
         adapter = new JcSongsAdapter(getApplicationContext(), mupload, new JcSongsAdapter.RecyclerItemClickListener() {
             @Override
             public void onClickListener(GetSongs songs, int postion) {
-
                 changeSelectedSong(postion);
-
                 jcPlayerView.playAudio(jcAudios.get(postion));
                 jcPlayerView.setVisibility(View.VISIBLE);
                 jcPlayerView.createNotification();
-
             }
         });
 

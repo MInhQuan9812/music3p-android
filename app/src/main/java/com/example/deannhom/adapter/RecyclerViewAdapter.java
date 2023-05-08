@@ -66,7 +66,7 @@ private List <Upload> uploads;
 
     @Override
     public int getItemCount() {
-        return uploads.size();
+        return 1;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

@@ -1,12 +1,13 @@
 package com.example.deannhom.fragment;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,29 +16,32 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.deannhom.EditProfileActivity;
 import com.example.deannhom.MainActivity;
 import com.example.deannhom.R;
 import com.example.deannhom.SignInActivity;
+import com.example.deannhom.helper.DbHelper;
 
 
 public class AccountFragment extends Fragment {
     private TextView usernameTextView;
     private TextView emailTextView;
-    private TextView playlistAmountTextView;
-    private TextView creationTimeTextView;
     private Button signOutButton;
     private SQLiteDatabase mDatabase;
+    private Button editProfileButton;
+    DbHelper DB;
 
     private static final String TABLE_NAME = "users";
-    private static final String COLUMN_USERNAME = "username";
-    private static final String COLUMN_FULLNAME= "fullname";
-    private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_PASSWORD = "password";
+    private static final String COLUMN_USERNAME = "username";
+    private static final String COLUMN_EMAIL = "email";
+
+//    private static final String COLUMN_PASSWORD = "password";
 
     public AccountFragment() {
 
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,15 +52,16 @@ public class AccountFragment extends Fragment {
         usernameTextView = rootView.findViewById(R.id.usernameTextView);
         emailTextView = rootView.findViewById(R.id.emailTextView);
         signOutButton = rootView.findViewById(R.id.signOutButton);
+        editProfileButton = rootView.findViewById(R.id.editProfileButton);
 
         // Create / Open the database
-        DBHelper dbHelper = new DBHelper(getActivity());
-        mDatabase = dbHelper.getReadableDatabase();
+        DbHelper DB = new DbHelper(getActivity());
+        mDatabase = DB.getReadableDatabase();
 
         // Get the user's data from the database
-//        Cursor cursor = mDatabase.query(TABLE_NAME, new String[]{COLUMN_ID, COLUMN_USERNAME, COLUMN_EMAIL},
-//                COLUMN_ID + "= " + 1, null, null, null, null);
-        Cursor cursor=mDatabase.rawQuery("select * from users ", null);
+        Cursor cursor = mDatabase.query(TABLE_NAME, new String[]{COLUMN_ID, COLUMN_USERNAME, COLUMN_EMAIL},
+                COLUMN_ID + "= " + 1, null, null, null, null);
+
 
         while (cursor.moveToNext()) {
             int emailIndex = cursor.getColumnIndex(COLUMN_EMAIL);
@@ -102,33 +107,14 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+                startActivity(intent);
+            }
+        });
         return rootView;
-    }
-
-    private static class DBHelper extends SQLiteOpenHelper {
-        private static final String DATABASE_NAME = "my_db";
-        private static final int DATABASE_VERSION = 1;
-        private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
-                COLUMN_USERNAME + " TEXT, " +
-                COLUMN_FULLNAME + " TEXT, " +
-                COLUMN_EMAIL + " TEXT PRIMARY KEY, " +
-                COLUMN_PASSWORD + " TEXT)";
-
-        private static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
-
-        public DBHelper(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL(CREATE_TABLE);
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL(DROP_TABLE);
-            onCreate(db);
-        }
     }
 }

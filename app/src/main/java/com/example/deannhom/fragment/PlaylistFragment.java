@@ -61,6 +61,17 @@ public class PlaylistFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initUi(view);
         getListUserFromRealtimeDatabase(key, i);
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                key=edtSearch.getText().toString().trim();
+                i=1;
+                mListSong.clear();
+                getListUserFromRealtimeDatabase(key,1);
+            }
+        });
+
     }
 
     private void initUi(View view) {

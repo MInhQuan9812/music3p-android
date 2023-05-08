@@ -85,48 +85,6 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Main");
 
-//        mnBottom.setOnNavigationItemSelectedListener(getListener());
-        // Check if user is already logged in
-
-//        isUserLoggedIn = checkUserLoginStatus();
-//        recyclerView = findViewById(R.id.recycler_view);
-//        noMusicTextView = findViewById(R.id.no_songs_text);
-//
-//        if (checkPermission() == false) {
-//            requestPermission();
-//            return;
-//        }
-//
-//        String[] projection = {
-//                MediaStore.Audio.Media.TITLE,
-//                MediaStore.Audio.Media.DATA,
-//                MediaStore.Audio.Media.DURATION
-//        };
-//
-//
-//        Gson gson=new Gson();
-//        String data=Utils.getAssetsJsonData(this);
-//        Type type=new TypeToken<ArrayList<AudioModel>>(){}.getType();
-//        songsList=gson.fromJson(data,type);
-
-
-//        String selection = MediaStore.Audio.Media.IS_MUSIC + " != 0";
-//        Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, selection, null, null);
-//
-//        while (cursor.moveToNext()) {
-//            AudioModel songData = new AudioModel(cursor.getString(1), cursor.getString(0), cursor.getString(2),cursor.getString(3),cursor.getString(4));
-//            if (new File(songData.getPath()).exists())
-//                songsList.add(songData);
-//        }
-
-
-//        if (songsList.size() == 0) {
-//            noMusicTextView.setVisibility(View.VISIBLE);
-//        } else {
-//            //recyclerview
-//            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//            recyclerView.setAdapter(new MusicListAdapter(songsList, getApplicationContext()));
-//        }
     }
 
     private void initView() {

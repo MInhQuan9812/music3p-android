@@ -23,7 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:indeterminate="true">
+        android:indeterminate="true"
+        >
 
     </ProgressBar>
 
@@ -31,7 +32,15 @@
         android:id="@+id/jcplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/whitesmoke"
         android:layout_alignParentBottom="true"
+        app:seek_bar_color="@color/primaryColor"
+        app:next_icon_color="@color/primaryColor"
+        app:pause_icon_color="@color/primaryColor"
+        app:play_icon_color="@color/primaryColor"
+        app:previous_icon_color="@color/primaryColor"
+        app:random_icon_color="@color/primaryColor"
+        app:repeat_icon_color="@color/primaryColor"
         android:visibility="gone">
 
 
