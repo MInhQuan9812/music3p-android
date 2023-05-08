@@ -2,83 +2,88 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/usernameTextView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:text="Username"
-        android:textColor="@android:color/black" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/emailTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="example@gmail.com"
-        android:textColor="@android:color/darker_gray" />
+        <ImageView
+            android:id="@+id/avatarProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/drawable_r25dp_outline"
+            android:src="@drawable/ic_user" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+        <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Username"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/textSubColor" />
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="example@gmail.com"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/textSubColor" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
-
-        <TextView
-            android:id="@+id/playlistAmountTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:text="Number of playlists: "
-            android:textColor="@android:color/darker_gray" />
-
-        <TextView
-            android:id="@+id/playlistAmountValueTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:text="5"
-            android:textColor="@android:color/black" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
             android:background="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/creationTimeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:text="Account created on: "
-            android:textColor="@android:color/darker_gray" />
+        <Button
+            android:id="@+id/ivngonngu"
+            style="@style/ButtonOutlineStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:text="Ngôn ngữ" />
 
-        <TextView
-            android:id="@+id/creationTimeValueTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:text="Jan 01, 2023"
-            android:textColor="@android:color/black" />
+        <Button
+            android:id="@+id/playlist"
+            style="@style/ButtonOutlineStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:text="Danh sách yêu thích" />
 
+
+        <Button
+            android:id="@+id/editProfile"
+            style="@style/ButtonOutlineStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:text="Chỉnh sửa thông tin cá nhân" />
+
+        <Button
+            android:id="@+id/signOutButton"
+            style="@style/ButtonPrimaryStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="60dp"
+            android:gravity="center"
+            android:text="Sign Out" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/signOutButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Sign Out"
-        android:textColor="@android:color/white"
-        android:background="@drawable/rounded_button_bg" />
 
 </LinearLayout>

@@ -56,12 +56,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void initView(View view) {
-
         //Declaring variables
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         progressDialog = new ProgressDialog(getContext());
-
         progressDialog.setMessage("please wait ...");
         progressDialog.show();
     }

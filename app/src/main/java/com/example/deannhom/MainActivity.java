@@ -7,12 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.AssetFileDescriptor;
-import android.database.Cursor;
-import android.provider.MediaStore;
-
-import java.io.File;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     TextView noMusicTextView;
     ArrayList<AudioModel> songsList = new ArrayList<>();
 
-    //
     RecyclerViewAdapter adapter;
     DatabaseReference mDatabase;
     ProgressDialog progressDialog;
@@ -89,10 +82,9 @@ public class MainActivity extends AppCompatActivity {
         uploads = new ArrayList<>();
 
         initView();
-//        setupFirebase();
-//        loadFragment(new HomeFragment());
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Main");
+
 //        mnBottom.setOnNavigationItemSelectedListener(getListener());
         // Check if user is already logged in
 
@@ -139,15 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
 
-        //Declaring variables
         mnBottom = findViewById(R.id.navMenu);
-//        recyclerView = findViewById(R.id.recycler_view);
-//        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-//        progressDialog = new ProgressDialog(this);
-//
-//        progressDialog.setMessage("please wait ...");
-//        progressDialog.show();
-
         mnBottom.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -168,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
         selectFragment(home, homeTag);
     }
 
@@ -176,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
     private void selectFragment(Fragment fragment, String fragmentTag) {
         FragmentManager fgm = getSupportFragmentManager();
         FragmentTransaction fmTransaction = fgm.beginTransaction();
-
         Fragment currentFragment = fgm.getPrimaryNavigationFragment();
         Fragment fragmentTemp = fgm.findFragmentByTag(fragmentTag);
 
@@ -246,7 +228,6 @@ public class MainActivity extends AppCompatActivity {
         return prefs.getBoolean("isLoggedIn", false);
     }
 
-    //
     boolean checkPermission() {
         int result = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if (result == PackageManager.PERMISSION_GRANTED) {

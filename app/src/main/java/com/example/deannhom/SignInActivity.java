@@ -45,8 +45,8 @@ public class SignInActivity extends AppCompatActivity {
         mDatabase = dbHelper.getWritableDatabase();
 
 
-        mEmailEditText.setText("example@gmail.com");
-        mPasswordEditText.setText("password123");
+//        mEmailEditText.setText("example@gmail.com");
+//        mPasswordEditText.setText("password123");
 
         // Set click listener for sign in button
         mSignInButton.setOnClickListener(new View.OnClickListener() {

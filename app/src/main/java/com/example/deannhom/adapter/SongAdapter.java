@@ -76,6 +76,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         private TextView songscategory;
         private Button btnUpdate;
         private Button btnDelete;
+
         public SongViewHolder(@NonNull View itemView) {
             super(itemView);
             tvAlbum_art = itemView.findViewById(R.id.album_art);

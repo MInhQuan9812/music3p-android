@@ -44,9 +44,7 @@ public class PlaylistFragment extends Fragment {
     private Button btnAddSong;
     private SongAdapter mSongAdapter;
     private List<Song> mListSong;
-
     private Button btnSearch;
-
     private EditText edtSearch;
     private String key;
     private int i = 0;
@@ -62,7 +60,6 @@ public class PlaylistFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initUi(view);
-
         getListUserFromRealtimeDatabase(key, i);
     }
 
@@ -71,15 +68,15 @@ public class PlaylistFragment extends Fragment {
         edtSearch = view.findViewById(R.id.edt_search);
         btnAddSong = view.findViewById(R.id.btn_add_song);
         rcvSongs = view.findViewById(R.id.rcv_songs);
-
         rcvSongs = view.findViewById(R.id.rcv_songs);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rcvSongs.setLayoutManager(linearLayoutManager);
-
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rcvSongs.addItemDecoration(dividerItemDecoration);
 
         mListSong = new ArrayList<>();
+
         mSongAdapter = new SongAdapter(mListSong, new SongAdapter.IClickListener() {
             @Override
             public void onClickUpdateItem(Song song) {
@@ -91,6 +88,7 @@ public class PlaylistFragment extends Fragment {
                 onClickDeleteData(song);
             }
         });
+
         rcvSongs.setAdapter(mSongAdapter);
         btnAddSong.setOnClickListener(new View.OnClickListener(){
 
@@ -158,16 +156,20 @@ public class PlaylistFragment extends Fragment {
                 dialog.dismiss();
             }
         });
+
         btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("songs");
                 String newAlbum_art = edtUdAlbumArt.getText().toString().trim();
+
                 song.setAlbum_art(newAlbum_art);
                 String newArtist = edtUdArtist.getText().toString().trim();
+
                 song.setArtist(newArtist);
                 String newSongDuration = edtUdSongDuration.getText().toString().trim();
+
                 song.setSongDuration(newSongDuration);
                 String newSongTitle = edtUdSongTitle.getText().toString().trim();
                 song.setSongTitle(newSongTitle);
@@ -195,27 +197,6 @@ public class PlaylistFragment extends Fragment {
     private void getListUserFromRealtimeDatabase(String key, int i) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("songs");
-
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (mListSong != null)
-//                {
-//                    mListSong.clear();
-//                }
-//                for(DataSnapshot dataSnapshot : snapshot.getChildren())
-//                {
-//                    Song song = dataSnapshot.getValue(Song.class);
-//                    mListSong.add(song);
-//                }
-//                mSongAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(MainActivity.this, "get list songs faild", Toast.LENGTH_SHORT).show();
-//            }
-//        });
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
