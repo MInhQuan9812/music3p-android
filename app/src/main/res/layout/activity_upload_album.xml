@@ -18,14 +18,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Choose" />
+            style="@style/ButtonPrimaryStyleLarge"
+            android:text="Chọn" />
 
         <EditText
             android:id="@+id/edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:hint="Enter a name of album" />
+            android:hint="Nhập tên hoặc album" />
 
 
     </LinearLayout>
@@ -73,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="upload" />
+            style="@style/ButtonPrimaryStyleLarge"
+            android:text="UPLOAD" />
     </LinearLayout>
 </RelativeLayout>

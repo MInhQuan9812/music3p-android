@@ -26,14 +26,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textAllCaps="false"
         android:textStyle="bold"
-        android:text="Create An Account"
+        android:text="Tạo tài khoản"
         android:textColor="@color/textPrimaryColor"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="30dp"
-        android:paddingLeft="20dp"
+        android:paddingLeft="18sp"
         />
 
     <EditText
@@ -46,9 +46,9 @@
         android:padding="10dp"
         android:layout_margin="10dp"
         android:background="@drawable/drawable_r10dp"
-        android:hint="User name"
+        android:hint="Tên người dùng"
         android:drawableLeft="@drawable/ic_user"
-        android:textSize="20sp"/>
+        android:textSize="15sp"/>
 
     <EditText
         android:id="@+id/emailEditText"
@@ -62,19 +62,19 @@
         android:hint="Email"
         android:background="@drawable/drawable_r10dp"
         android:drawableLeft="@drawable/ic_mail"
-        android:textSize="20sp"
+        android:textSize="15sp"
         />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:hint="Password"
+        android:hint="Mật khẩu"
         android:backgroundTint="@color/buttonTextSubColor"
         android:textColor="@color/textPrimaryColor"
         android:textColorHint="@color/textPrimaryColor"
         android:padding="10dp"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_margin="10dp"
         android:background="@drawable/drawable_r10dp"
         android:drawableRight="@drawable/ic_hide_password"
@@ -91,8 +91,8 @@
         android:textColor="@color/textPrimaryColor"
         android:textColorHint="@color/textPrimaryColor"
         android:padding="10dp"
-        android:hint="Confirm Password"
-        android:textSize="20sp"
+        android:hint="Xác thực mật khẩu"
+        android:textSize="15sp"
         android:layout_margin="10dp"
         android:background="@drawable/drawable_r10dp"
         android:drawableRight="@drawable/ic_hide_password"
@@ -111,7 +111,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="30dp"
-        android:text="Create account"
+        android:text="Đăng kí"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20dp" />
@@ -126,7 +126,7 @@
         android:paddingTop="5dp"
         android:paddingRight="20dp"
         android:paddingBottom="5dp"
-        android:text="Already have an account? Click here to sign in"
+        android:text="Bạn đã có tài khoản?Đăng nhập"
         android:textColor="@color/textSubColor"
         android:textAlignment="center"
         android:textSize="15dp"

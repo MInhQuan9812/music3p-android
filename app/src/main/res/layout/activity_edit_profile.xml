@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Chỉnh sửa thông tin"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/textPrimaryColor"/>
 
@@ -60,6 +60,7 @@
             android:textColor="@color/black" />
 
         <Button
+            android:layout_marginTop="30dp"
             android:id="@+id/completedBtn"
             style="@style/ButtonPrimaryStyleLarge"
             android:layout_width="match_parent"

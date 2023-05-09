@@ -24,8 +24,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Username"
+            android:textSize="20sp"
             android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/textSubColor" />
+            android:textColor="@color/textPrimaryColor" />
 
         <TextView
             android:id="@+id/emailTextView"
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="example@gmail.com"
+            android:textSize="15sp"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/textSubColor" />
 
@@ -47,7 +49,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@color/whitesmoke" />
 
         <Button
             android:id="@+id/ivngonngu"
@@ -72,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
-            android:text="Chỉnh sửa thông tin cá nhân" />
+            android:text="Thông tin cá nhân" />
 
         <Button
             android:id="@+id/signOutButton"
@@ -82,7 +84,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="60dp"
             android:gravity="center"
-            android:text="Sign Out" />
+            android:text="ĐĂNG XUẤT" />
     </LinearLayout>
 
 

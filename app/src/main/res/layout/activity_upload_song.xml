@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/whitesmoke"
+    android:orientation="vertical"
     android:padding="10dp"
-    android:background="@android:color/holo_blue_light"
     tools:context=".UploadSongActivity">
 
     <TextView
@@ -14,37 +14,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        android:background="#8BC34A"
+        android:background="@color/primaryColor"
         android:text="Choose category"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="16dp"
         android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF">
+        android:background="@color/whitesmoke">
 
         <Button
             android:id="@+id/openAudioFile"
+            style="@style/ButtonPrimaryStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="openAudioFiles"
-            android:text="Upload Song"
+            android:text="UPLOAD SONG"
             android:textSize="16dp" />
 
         <TextView
             android:id="@+id/textViewFileSelected"
+            style="@style/ButtonOutlineStyleLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:gravity="center"
-            android:text="No item selected"></TextView>
+            android:text="Chưa có mục được chọn"></TextView>
     </LinearLayout>
 
     <ProgressBar
@@ -56,51 +58,58 @@
 
     <Button
         android:id="@+id/buttonUpload"
+        style="@style/ButtonPrimaryStyleLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:onClick="uploadFileToFirebase"
-        android:text="upload"
+        android:text="UPLOAD"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="title"
+            android:layout_marginBottom="12sp"
+            android:text="Tên"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/album"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="album"
+            android:layout_marginBottom="12sp"
+            android:text="Album"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/artist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="title"
+            android:layout_marginBottom="12sp"
+            android:text="Nghệ sĩ"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/dataa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="dataa"
+            android:layout_marginBottom="12sp"
+            android:text="Dữ liệu"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="duration"
+            android:layout_marginBottom="12sp"
+            android:text="Thời lượng"
             android:textStyle="bold" />
 
         <ImageView
@@ -111,9 +120,9 @@
 
     <Button
         android:id="@+id/openImageUploadActivity"
+        style="@style/ButtonOutlineStyleLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="open album activity"
-         />
+        android:text="MỞ ALBUM" />
 
 </LinearLayout>

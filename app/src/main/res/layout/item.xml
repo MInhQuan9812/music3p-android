@@ -52,7 +52,7 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="5dp"
         android:layout_toStartOf="@+id/btn_Delete"
-        android:text="Update" />
+        android:text="Sửa" />
 
     <Button
         android:id="@+id/btn_Delete"
@@ -61,5 +61,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:text="Delete" />
+        android:text="Xóa" />
 </RelativeLayout>

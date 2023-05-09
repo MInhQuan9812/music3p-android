@@ -2,7 +2,7 @@ package com.example.deannhom.model;
 
 public class Upload {
 
-    String name ="test" ;
+    String name ="Thiên hạ nghe gì" ;
 //    String url;
     String url ="https://th.bing.com/th/id/OIP.vUXMO2WQCtGrRqUlbqhHvQHaHa?pid=ImgDet&rs=1";
     String songsCategory;

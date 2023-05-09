@@ -5,13 +5,13 @@
     <item
         android:id="@+id/mnAll"
         android:icon="@drawable/ic_baseline_search_24"
-        android:title="All" />
+        android:title="Khám phá" />
     <item
         android:id="@+id/mnPlaylist"
         android:icon="@drawable/ic_baseline_playlist_play_24"
-        android:title="PlayList" />
+        android:title="Quản lí" />
     <item
         android:id="@+id/mnAccount"
         android:icon="@drawable/ic_baseline_account_circle_24"
-        android:title="Account" />
+        android:title="Tài khoản" />
 </menu>

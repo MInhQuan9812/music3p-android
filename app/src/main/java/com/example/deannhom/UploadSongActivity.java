@@ -203,7 +203,7 @@ public class UploadSongActivity extends AppCompatActivity implements AdapterView
                     storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            UploadSong uploadSong = new UploadSong(songsCategory, title1, artist1, album_art1, durations1, uri.toString(), "test");
+                            UploadSong uploadSong = new UploadSong(songsCategory, title1, artist1, album_art1, durations1, uri.toString(), "Thiên hạ nghe gì");
                             //edited
 //                            String uploadId = referenceSongs.push().getKey();
                             String uploadId = uploadSong.getSongDuration();
